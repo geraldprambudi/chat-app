@@ -1,7 +1,35 @@
+<?php
+	session_start();
+	include_once "setting/database.php";
+	include_once "setting/status_depan.php";
+	if(isset($_POST['submit_login'])) {
+		$username_login = htmlentities(trim($_POST['username_login']));
+		$password_login = htmlentities(md5($_POST['password_login']));
+
+		$seleksi = mysqli_query($koneksi, "SELECT id_member FROM member WHERE username='$username_login' AND password='$password_login'");
+		$data_member = mysqli_fetch_array($seleksi);
+		$jumlah_baris = mysqli_num_rows($seleksi);
+		if($jumlah_baris == 1) {
+			$_SESSION['id_member'] = $data_member['id_member'];
+			header("Location: dashboard/index.php");
+		} else {
+		?>
+			<script>
+				alert("Maaf, Username dan password salah");
+				document.location = 'index.php';
+			</script>
+		<?php
+		}
+
+
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Halaman Daftar Dan Login</title>
+	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/daftar.js"></script>

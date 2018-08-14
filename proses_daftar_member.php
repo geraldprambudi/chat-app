@@ -28,7 +28,7 @@
 
     if($jumlah_baris == 0) {
      	$isi = mysqli_query($koneksi, "INSERT INTO member(nama_lengkap, gender, alamat, username, password) VALUES('$nama_lengkap_daftar', '$gender_daftar', '$alamat_daftar', '$username_daftar', '$password_daftar')");
-     	die(pesan(0, "Semua data tersimpan..."));
+     	die(pesan(1, "Semua data tersimpan..."));
      	
     } else {
     	die(pesan(0, "Username member sudah terdaftar"));
