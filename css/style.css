@@ -1,0 +1,25 @@
+#loading_daftar {
+	color:blue;
+	font-style: italic;
+	visibility: hidden;
+}
+
+#keterangan {
+	padding: 3px;
+	font-weight: bold;
+}
+
+.gagal {
+	border: 1px solid red;
+	color: red;
+}
+
+.sukses {
+	border: 1px solid green;
+	color: green;
+}
+
+h1 {
+	color: red;
+	font-size: 50px;
+}
